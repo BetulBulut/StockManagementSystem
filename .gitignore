@@ -21,6 +21,7 @@ packages/
 
 # Log dosyaları
 *.log
+Logs/
 
 # Geçici dosyalar
 *.bak
