@@ -27,6 +27,7 @@ public class Startup
                 {
                     fv.RegisterValidatorsFromAssemblyContaining<CreateStockTypeRequestValidator>();
                 });
+       
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddDbContext<AppDbContext>(options =>
