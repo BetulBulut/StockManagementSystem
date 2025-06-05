@@ -21,69 +21,69 @@ StockManagementSystem/
 
 │
 
-├── client/                                 # Angular UI projesi
+├── client/                                 ## Angular UI projesi
 
-│   └── stock-management-ui/                # Angular CLI ile oluşturuldu
+│   └── stock-management-ui/                ## Angular CLI ile oluşturuldu
 
 │       ├── src/
 
 │       │   ├── app/
 
-│       │   │   ├── modules/                # Özelleştirilmiş modüller
+│       │   │   ├── modules/                ## Özelleştirilmiş modüller
 
-│       │   │   │   ├── stock-type/         # Stok türleri modülü
+│       │   │   │   ├── stock-type/         ## Stok türleri modülü
 
-│       │   │   │   ├── stock-unit/         # Stok birimleri modülü
+│       │   │   │   ├── stock-unit/         ## Stok birimleri modülü
 
-│       │   │   │   └── stock/              # Stok (raf, dolap, miktar) modülü
+│       │   │   │   └── stock/              ## Stok (raf, dolap, miktar) modülü
 
-│       │   │   ├── app-routing.module.ts   # Uygulama yönlendirme ayarları
+│       │   │   ├── app-routing.module.ts   ## Uygulama yönlendirme ayarları
 
-│       │   │   └── app.component.ts        # Root component (standalone yapı)
+│       │   │   └── app.component.ts        ## Root component (standalone yapı)
 
-│       │   └── environments/               # Ortam yapılandırmaları (dev/prod)
+│       │   └── environments/               ## Ortam yapılandırmaları (dev/prod)
 
-│       └── angular.json                    # Angular proje yapılandırması
+│       └── angular.json                    ## Angular proje yapılandırması
 
 │
 
-├── server/                                 # .NET Core Web API projesi
+├── server/                                 ## .NET Core Web API projesi
 
-│   ├── API/                                # API katmanı (Controller’lar)
+│   ├── API/                                ## API katmanı (Controller’lar)
 
 │   │   ├── Controllers/
 
 │   │   │   ├── Migrations/
 
-│   │   └── Program.cs, appsettings.json    # Giriş noktası ve yapılandırma
+│   │   └── Program.cs, appsettings.json    ## Giriş noktası ve yapılandırma
 
 │
 
-│   ├── Application/                        # Uygulama katmanı
+│   ├── Application/                        ## Uygulama katmanı
 
-│   │   ├── DTOs/                           # Veri transfer nesneleri
+│   │   ├── DTOs/                           ## Veri transfer nesneleri
 
-│   │   ├── Interfaces/                     # Repository & Service arayüzleri
+│   │   ├── Interfaces/                     ## Repository & Service arayüzleri
 
-│   │   └── Services/                       # İş mantığı servisleri
+│   │   └── Services/                       ## İş mantığı servisleri
 
 │   │   └── Repositories/
 
-│   │   ├── Logging/                        # Serilog vb. log servisleri
+│   │   ├── Logging/                        ## Serilog vb. log servisleri
 
-│   │   ├── ExceptionHandling/              # Global exception handler middleware
-
-│
-
-│   ├── Domain/                             # Domain katmanı (model)
-
-│   │   ├── Entities/                       # Entity sınıfları (Stock, StockType, StockUnit)
-
-│   │   └── ValueObjects/                   # Değer nesneleri (varsa)
+│   │   ├── ExceptionHandling/              ## Global exception handler middleware
 
 │
 
-│   ├── Infrastructure/                     # Altyapı katmanı
+│   ├── Domain/                             ## Domain katmanı (model)
+
+│   │   ├── Entities/                       ## Entity sınıfları (Stock, StockType, StockUnit)
+
+│   │   └── ValueObjects/                   ## Değer nesneleri (varsa)
+
+│
+
+│   ├── Infrastructure/                     ## Altyapı katmanı
 
 │   │   ├── DbContext/
 
@@ -95,7 +95,7 @@ StockManagementSystem/
 
 │
 
-│   └── StockManagementSystem.sln           # Visual Studio solution dosyası
+│   └── StockManagementSystem.sln           ## Visual Studio solution dosyası
 
 
 
