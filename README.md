@@ -18,6 +18,7 @@
 
 ## 📂 Proje Yapısı
 StockManagementSystem 
+
 │
 
 ├── client                        → Angular UI (Modüler yapıda)
