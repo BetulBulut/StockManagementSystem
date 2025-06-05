@@ -21,13 +21,18 @@ StockManagementSystem
 │
 
 ├── client                        → Angular UI (Modüler yapıda)
+
 │   └── stock-management-ui       → Angular CLI projesi (src/app/modules altında modüller)
 
 ├── server
+
 │   ├── API                       → API Katmanı (Controller’lar, Program.cs)
+
 │   ├── Application               → İş kuralları (Servisler, DTO’lar, Interfaces)
+
 │   ├── Domain                    → Entity’ler ve Değer Nesneleri
-│   ├── Infrastructure            → EF DbContext, Repository, Logging, Middleware
+
+│   ├── Infrastructure            → EF DbContext
 
 ---
 
