@@ -18,46 +18,83 @@
 
 ## 📂 Proje Yapısı
 StockManagementSystem/
+
 │
+
 ├── client/                                 # Angular UI projesi
+
 │   └── stock-management-ui/                # Angular CLI ile oluşturuldu
+
 │       ├── src/
+
 │       │   ├── app/
-│       │   │   ├── core/                   # Interceptor, auth service, guards
-│       │   │   ├── shared/                 # Ortak component, pipe ve utility'ler
+
 │       │   │   ├── modules/                # Özelleştirilmiş modüller
+
 │       │   │   │   ├── stock-type/         # Stok türleri modülü
+
 │       │   │   │   ├── stock-unit/         # Stok birimleri modülü
+
 │       │   │   │   └── stock/              # Stok (raf, dolap, miktar) modülü
+
 │       │   │   ├── app-routing.module.ts   # Uygulama yönlendirme ayarları
+
 │       │   │   └── app.component.ts        # Root component (standalone yapı)
-│       │   ├── assets/                     # Statik dosyalar
+
 │       │   └── environments/               # Ortam yapılandırmaları (dev/prod)
+
 │       └── angular.json                    # Angular proje yapılandırması
+
 │
+
 ├── server/                                 # .NET Core Web API projesi
+
 │   ├── API/                                # API katmanı (Controller’lar)
+
 │   │   ├── Controllers/
-│   │   └── Program.cs, appsettings.json    # Giriş noktası ve yapılandırma
-│
-│   ├── Application/                        # Uygulama katmanı
-│   │   ├── DTOs/                           # Veri transfer nesneleri
-│   │   ├── Interfaces/                     # Repository & Service arayüzleri
-│   │   └── Services/                       # İş mantığı servisleri
-│
-│   ├── Domain/                             # Domain katmanı (model)
-│   │   ├── Entities/                       # Entity sınıfları (Stock, StockType, StockUnit)
-│   │   └── ValueObjects/                   # Değer nesneleri (varsa)
-│
-│   ├── Infrastructure/                     # Altyapı katmanı
-│   │   ├── Persistence/                    # EF Core, DbContext, Repositories
-│   │   │   ├── DbContext/
+
 │   │   │   ├── Migrations/
-│   │   │   └── Repositories/
-│   │   ├── Logging/                        # Serilog vb. log servisleri
-│   │   ├── ExceptionHandling/              # Global exception handler middleware
-│   │   └── Services/                       # Harici servis adapter'ları (varsa)
+
+│   │   └── Program.cs, appsettings.json    # Giriş noktası ve yapılandırma
+
 │
+
+│   ├── Application/                        # Uygulama katmanı
+
+│   │   ├── DTOs/                           # Veri transfer nesneleri
+
+│   │   ├── Interfaces/                     # Repository & Service arayüzleri
+
+│   │   └── Services/                       # İş mantığı servisleri
+
+│   │   └── Repositories/
+
+│   │   ├── Logging/                        # Serilog vb. log servisleri
+
+│   │   ├── ExceptionHandling/              # Global exception handler middleware
+
+│
+
+│   ├── Domain/                             # Domain katmanı (model)
+
+│   │   ├── Entities/                       # Entity sınıfları (Stock, StockType, StockUnit)
+
+│   │   └── ValueObjects/                   # Değer nesneleri (varsa)
+
+│
+
+│   ├── Infrastructure/                     # Altyapı katmanı
+
+│   │   ├── DbContext/
+
+│   │   ├── Migrations/
+
+│   │   ├── Configurations/
+
+│   │   ├── Seeds/
+
+│
+
 │   └── StockManagementSystem.sln           # Visual Studio solution dosyası
 
 
