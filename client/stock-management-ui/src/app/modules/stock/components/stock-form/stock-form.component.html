@@ -1,0 +1,77 @@
+<div class="p-5 border bg-light rounded" style="max-height: 90vh; overflow-y: auto;">
+<div class="p-5 border bg-light rounded">
+  <h2 class="mb-4">{{ isEditMode ? 'Stok Güncelle' : 'Yeni Stok Ekle' }}</h2>
+
+  <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+
+     <div class="mb-3">
+      <label class="form-label">Sınıf (class)</label>
+      <select class="form-select rounded-0" formControlName="class">
+        <option value="RawMaterial">Hammadde</option>
+        <option value="SemiFinished">Yarı Mamül</option>
+        <option value="FinishedProduct">Mamül</option>
+        <option value="SparePart">Yedek Parça</option>
+        <option value="PackagingMaterial">Ambalaj Malzemesi</option>
+        <option value="Consumable">Tüketim Malzemesi</option>
+        <option value="Tool">Alet</option>
+        <option value="Equipment">Ekipman</option>
+        <option value="Chemical">Kimyasal</option>
+        <option value="Other">Diğer</option>
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Stok Türü</label>
+      <select class="form-select rounded-0" formControlName="stockTypeId">
+        <option value="" disabled selected>Seçiniz</option>
+        <option *ngFor="let type of stockTypes" [value]="type.id">{{ type.name }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Stok Birimi</label>
+      <select class="form-select rounded-0" formControlName="stockUnitId">
+        <option value="" disabled selected>Seçiniz</option>
+        <option *ngFor="let unit of stockUnits" [value]="unit.id">
+          {{ unit.code }} - {{ unit.unit }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Miktar (Quantity)</label>
+      <input type="number" class="form-control rounded-0" formControlName="quantity" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Raf Bilgisi (Shelf Info)</label>
+      <input type="text" class="form-control rounded-0" formControlName="shelfInfo" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Dolap Bilgisi (Cabinet Info)</label>
+      <input type="text" class="form-control rounded-0" formControlName="cabinetInfo" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Kritik Miktar (Critical Quantity)</label>
+      <input type="number" class="form-control rounded-0" formControlName="criticalQuantity" />
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label">Aktif Mi?</label>
+      <select class="form-select rounded-0" formControlName="isActive">
+        <option [value]="true">Aktif</option>
+        <option [value]="false">Pasif</option>
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2">
+      <button type="button" class="btn btn-secondary rounded-0" (click)="close()">İptal</button>
+      <button type="submit" class="btn btn-primary rounded-0" [disabled]="stockForm.invalid">
+        {{ isEditMode ? 'Güncelle' : 'Kaydet' }}
+      </button>
+    </div>
+  </form>
+</div>
+</div>

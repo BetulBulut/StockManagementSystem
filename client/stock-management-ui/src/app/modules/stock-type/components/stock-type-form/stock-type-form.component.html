@@ -1,0 +1,28 @@
+<div class="p-4 border bg-light">
+  <h2 class="mb-4">{{ isEditMode ? 'Stok Türü Güncelle' : 'Stok Türü Ekle' }}</h2>
+
+  <form [formGroup]="stockTypeForm" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="stockName" class="form-label">Stok Türü</label>
+      <input
+        type="text"
+        id="stockName"
+        formControlName="name"
+        class="form-control rounded-0"
+        [ngClass]="{ 'is-invalid': stockTypeForm.get('name')?.invalid && stockTypeForm.get('name')?.touched }"
+      />
+      <div class="invalid-feedback" *ngIf="stockTypeForm.get('name')?.hasError('required')">
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-end gap-2">
+      <button type="button" class="btn btn-secondary rounded-0" (click)="close()">Cancel</button>
+      <button type="submit" class="btn btn-primary rounded-0">
+        {{ isEditMode ? 'Güncelle' : 'Kaydet' }}
+      </button>
+    </div>
+  </form>
+</div>

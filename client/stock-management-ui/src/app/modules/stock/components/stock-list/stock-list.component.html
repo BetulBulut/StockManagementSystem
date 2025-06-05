@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <!-- Başlık ve Ekle Butonu -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-secondary">Stok Listesi</h2>
+    <button class="btn btn-primary" (click)="addNew()">+ Ekle</button>
+  </div>
+
+  <!-- Tablo -->
+  <table class="table table-hover table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Birim Kodu</th>
+        <th scope="col">Birim Açıklaması</th>
+        <th scope="col">Stok Türü</th>
+        <th scope="col">Toplam stok Miktarı</th>
+        <th scope="col">Kritik Miktar</th>
+        <th scope="col">Durum</th>
+        <th scope="col">İşlemler</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stocks; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ stock.stockUnitCode }}</td>
+        <td>{{ stock.stockUnitDescription }}</td>
+        <td>{{ stock.stockTypeName }}</td>
+        <td [class.text-danger]="stock.quantity <= stock.criticalQuantity">{{ stock.quantity }}</td>
+        <td>{{ stock.criticalQuantity }}</td>
+        <td>
+          <span [ngClass]="stock.isActive ? 'text-success' : 'text-danger'">
+            {{ stock.isActive ? 'Aktif' : 'Pasif' }}
+          </span>
+        </td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="edit(stock)">Düzenle</button>
+          <button class="btn btn-sm" 
+                  [ngClass]="stock.isActive ? 'btn-outline-secondary' : 'btn-outline-primary'"
+                  (click)="toggleActive(stock)">
+            {{ stock.isActive ? 'Pasifleştir' : 'Aktifleştir' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

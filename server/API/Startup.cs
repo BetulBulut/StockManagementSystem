@@ -10,6 +10,8 @@ using StockManagementSystem.Infrastructure;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Swashbuckle.AspNetCore.Swagger;
 using Application.Services;
+using StockManagementSystem.API.Middlewares;
+using Azure.Core;
 
 namespace StockManagementSystem.API;
 
@@ -33,6 +35,15 @@ public class Startup
         services.AddDbContext<AppDbContext>(options =>
         {
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+        });
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAngularDev", builder =>
+            {
+                builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
         });
 
         services.AddScoped<IStockTypeRepository, StockTypeRepository>();
@@ -63,10 +74,11 @@ public class Startup
             c.RoutePrefix = string.Empty; // Swagger UI ana dizinde açılsın
         });
 
-        //app.UseMiddleware<ErrorHandlerMiddleware>();
+        app.UseMiddleware<ErrorHandlerMiddleware>();
         app.UseHttpsRedirection();
-        app.UseAuthentication();
         app.UseRouting();
+        app.UseCors("AllowAngularDev");
+        app.UseAuthentication();
         app.UseAuthorization();
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
     }

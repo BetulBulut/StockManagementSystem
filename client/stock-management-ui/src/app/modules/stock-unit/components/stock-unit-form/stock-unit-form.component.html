@@ -1,0 +1,102 @@
+<div class="p-4 border bg-light rounded" style="max-width: 500px; max-height: 90vh; overflow-y: auto;">
+  <h4 class="mb-4">{{ isEditMode ? 'Stok Birimi Güncelle' : 'Stok Birimi Ekle' }}</h4>
+  <form [formGroup]="stockUnitForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Stok Birim Kodu</label>
+      <input type="text" class="form-control rounded-0" formControlName="code" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Stok Türü</label>
+      <select class="form-select rounded-0" formControlName="stockTypeId">
+        <option value="" disabled selected>Seçiniz</option>
+        <option *ngFor="let type of stockTypes" [value]="type.id">{{ type.name }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Miktar Birimi</label>
+      <select class="form-select rounded-0" formControlName="unit">
+        <option value="" disabled selected>Seçiniz</option>
+        <option value="Piece">Adet</option>
+        <option value="Box">Koli</option>
+        <option value="Pallet">Palet</option>
+        <option value="Kilogram">Kilogram</option>
+        <option value="Gram">Gram</option>
+        <option value="Liter">Litre</option>
+        <option value="Milliliter">Mililitre</option>
+        <option value="Meter">Metre</option>
+        <option value="Centimeter">Santimetre</option>
+        <option value="SquareMeter">Metrekare</option>
+        <option value="CubicMeter">Metreküp</option>
+        <option value="Roll">Rulo</option>
+        <option value="Bundle">Demet</option>
+        <option value="Pack">Paket</option>
+        <option value="Set">Takım</option>
+        <option value="PiecePerBox">Adet/Koli</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Açıklama</label>
+      <input type="text" class="form-control rounded-0" formControlName="description" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Alış Fiyatı</label>
+      <input type="number" class="form-control rounded-0" formControlName="purchasePrice" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Alış Fiyatı Para Birimi</label>
+      <select class="form-select rounded-0" formControlName="purchaseCurrency">
+        <option value="TRY">TÜRK LIRASI</option>
+        <option value="USD">DOLAR</option>
+        <option value="EUR">EURO</option>
+        <option value="GBP">STERLIN</option>
+        <option value="JPY">YEN</option>
+        <option value="AUD">AVUSTRALYA DOLARI</option>
+        <option value="CAD">KANADA DOLARI</option>
+        <option value="CHF">İSVİÇRE FRANGI</option>
+        <option value="CNY">ÇİN YUANI</option>
+        <option value="SEK">İSVEÇ KRONU</option>
+        <option value="NZD">YENİ ZELANDA DOLARI</option>
+        <option value="MXN">MEKSIKA PESOSU</option>
+        <option value="SGD">SINGAPUR DOLARI</option>
+        <option value="HKD">HONG KONG DOLARI</option>
+        <option value="NOK">NORVEÇ KRONU</option>
+        <option value="KRW">KORE WONU</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Satış Fiyatı</label>
+      <input type="number" class="form-control rounded-0" formControlName="salePrice" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Satış Fiyatı Para Birimi</label>
+      <select class="form-select rounded-0" formControlName="saleCurrency">
+        <option value="TRY">TÜRK LIRASI</option>
+        <option value="USD">DOLAR</option>
+        <option value="EUR">EURO</option>
+        <option value="GBP">STERLIN</option>
+        <option value="JPY">YEN</option>
+        <option value="AUD">AVUSTRALYA DOLARI</option>
+        <option value="CAD">KANADA DOLARI</option>
+        <option value="CHF">İSVİÇRE FRANGI</option>
+        <option value="CNY">ÇİN YUANI</option>
+        <option value="SEK">İSVEÇ KRONU</option>
+        <option value="NZD">YENİ ZELANDA DOLARI</option>
+        <option value="MXN">MEKSIKA PESOSU</option>
+        <option value="SGD">SINGAPUR DOLARI</option>
+        <option value="HKD">HONG KONG DOLARI</option>
+        <option value="NOK">NORVEÇ KRONU</option>
+        <option value="KRW">KORE WONU</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Kağıt Ağırlığı</label>
+      <input type="text" class="form-control rounded-0" formControlName="paperWeight" />
+    </div>
+    <div class="d-flex justify-content-end gap-2">
+      <button type="button" class="btn btn-secondary rounded-0" (click)="close()">İptal</button>
+      <button type="submit" class="btn btn-primary rounded-0" [disabled]="stockUnitForm.invalid">
+        {{ isEditMode ? 'Güncelle' : 'Kaydet' }}
+      </button>
+    </div>
+  </form>
+</div>

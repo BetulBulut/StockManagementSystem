@@ -1,0 +1,18 @@
+<!-- index.component.html -->
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <h1 class="mb-4">📦 Stok Yönetim Sistemine Hoşgeldiniz</h1>
+    <p class="lead mb-5">İşleminizi seçmek için bir butona tıklayın:</p>
+    <div class="d-flex justify-content-center gap-3">
+      <button class="btn btn-primary btn-lg" [routerLink]="['/stock-types']">
+        Stok Türleri
+      </button>
+      <button class="btn btn-outline-secondary btn-lg" [routerLink]="['/stocks']">
+        Stoklar
+      </button>
+       <button class="btn btn-outline-success btn-lg" [routerLink]="['/stock-units']">
+        Stok Birimleri
+        </button>
+    </div>
+  </div>
+</div>
